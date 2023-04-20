@@ -1,5 +1,6 @@
 :root {
     --navbar-icon-size: 40px;
+    --navbar-color: #98A8F8;
 }
 
 ul {
@@ -13,10 +14,13 @@ li {
 
 .navbar {
     width: var(--screen-width);
-    height: 70px;
     position: fixed;
     bottom: 0;
-    background-color: rgb(39, 39, 39);
+    background-color: var(--navbar-color);
+}
+
+.navbar i{
+    color: #FAF7F0;
 }
 
 .navbar img {
@@ -41,6 +45,15 @@ li {
 
 .navbar li:not(:last-child) {
     border-right: 1px solid silver;
+}
+
+.navbar-top{
+    display: fixed;
+    flex-direction: row;
+}
+
+.navbar-top i{
+    color:#98A8F8
 }
 
 @media only screen and (max-width: 428px) {

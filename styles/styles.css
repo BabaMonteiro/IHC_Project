@@ -4,3 +4,27 @@
     --color3: #BCCEF8;
     --color4: #98A8F8;
 }   /*var(--color...)*/
+
+.page-title{
+    color: var(--color4)
+}
+
+.topleft{
+    position: absolute;
+    top: 18px;
+    left: 8px;
+}
+
+.topcenter{
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: -15px;
+    text-align: center;
+}
+
+.topright{
+    position: absolute;
+    top: 18px;
+    right: 8px;
+}
