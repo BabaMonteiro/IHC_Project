@@ -4,3 +4,32 @@
     --color3: #BCCEF8;
     --color4: #98A8F8;
 }   /*var(--color...)*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.fa-face-smile-beam {
+    color: #70a0c7;
+    font-size: 28px;
+}
+
+.fa-face-smile {
+    color: #86c76d;
+    font-size: 28px; 
+}
+
+.fa-face-meh {
+    color: #dbdd37;
+    font-size: 28px; 
+}
+
+.fa-face-frown {
+    color: #f9bb5e;
+    font-size: 28px; 
+}
+
+.fa-face-angry {
+    color: #b56363;
+    font-size: 28px; 
+}

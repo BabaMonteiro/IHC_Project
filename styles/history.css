@@ -1,0 +1,23 @@
+.emotions {
+    display: flex;
+    padding: 10px;
+}
+
+.emotions > div {
+    width: 100%;
+    text-align: center;
+}
+
+.emotions > div > i {
+    margin-bottom: 5px;
+}
+
+.emotions > div > div {
+    color: gray;
+    font-size: 16px;
+}
+
+.emotions > div > div:last-child {
+    margin-top: 5px;
+    font-size: 13px;
+}

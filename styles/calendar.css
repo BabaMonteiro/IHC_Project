@@ -10,6 +10,15 @@
     text-align: center;
 }
 
+.month-chooser > div:not(:nth-child(2)) {
+    color: silver;
+    cursor: pointer;
+}
+
+.month-chooser > div:not(:nth-child(2)):hover {
+    color: black;
+}
+
 .calendar {
     display: flex;
     flex-direction: column;
@@ -36,4 +45,8 @@
     bottom: 0;
     margin: auto;
     height: fit-content;
+}
+
+.year {
+    border: 1px solid silver;
 }

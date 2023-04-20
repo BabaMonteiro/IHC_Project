@@ -8,24 +8,15 @@ class Calendar {
     }
 
     create() {
-        // week days row
-        const weekDaysRow = document.createElement('div');
-        weekDaysRow.className = 'week-row week';
-        for (let i = 0; i < this.daysInWeek; i++) {
-            const dayCell = document.createElement('div');
-            const cellContent = document.createElement('div');
-            cellContent.innerText = this.weekDays[i].charAt(0);
-            dayCell.appendChild(cellContent);
-            weekDaysRow.appendChild(dayCell);
-        }
-        this.container.appendChild(weekDaysRow);
-
-        // days rows
-        for (let i = 0; i < this.maxRowsInMonth; i++) {
+        for (let i = 0; i < this.maxRowsInMonth + 1; i++) {
             const daysRow = document.createElement('div');
-            daysRow.className = 'week-row days';
-            for (let j = 0; j < 7; j++) {
+            daysRow.classList.add('week-row');
+            daysRow.classList.add(i == 0 ? 'week' : 'days');
+            for (let j = 0; j < this.daysInWeek; j++) {
                 const dayCell = document.createElement('div');
+                const cellContent = document.createElement('div');
+                cellContent.innerText = i == 0 ? this.weekDays[j].charAt(0) : '';
+                dayCell.appendChild(cellContent);
                 daysRow.appendChild(dayCell);
             }
             this.container.appendChild(daysRow);
@@ -44,19 +35,19 @@ class Calendar {
     }
 
     fill(month, year) {
-        if (month && year) {
+        this.clear();
+
+        if (month && year)
             this.update(month, year);
-        }
 
         const rows = this.container.querySelectorAll('.days');
         const cellsContent = this.mapDays();
         for (let i = 0; i < cellsContent.length; i++) {
             let row = cellsContent[i];
-            let elementsRow = rows[i].querySelectorAll('div');
+            let elementsRow = rows[i].children;
             for (let j = 0; j < row.length; j++) {
-                const cellContent = document.createElement('div');
+                const cellContent = elementsRow[j].querySelector('div');
                 cellContent.innerText = row[j];
-                elementsRow[j].appendChild(cellContent);
             }
         }
     }
@@ -85,6 +76,15 @@ class Calendar {
         }
 
         return days;
+    }
+
+    clear() {
+        const rows = this.container.querySelectorAll('.days');
+        for (let row of rows) {
+            for (let cell of row.children) {
+                cell.querySelector("div").innerText = '';
+            }
+        }
     }
 }
 
