@@ -1,0 +1,39 @@
+.month-chooser {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid silver;
+}
+
+.month-chooser > div {
+    width: 100%;
+    text-align: center;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar > div {
+    width: 100%;
+    text-align: center;
+    display: flex;
+}
+
+.week-row > div {
+    width: 100%;
+    border: 1px solid silver;
+    height: 50px;
+    position: relative;
+}
+
+.week-row > div > div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: fit-content;
+}
