@@ -21,3 +21,11 @@
     margin-top: 5px;
     font-size: 13px;
 }
+
+.has-emotion {
+    right: 2px !important;
+    bottom: 2px !important;
+    left: unset !important;
+    top: unset !important;
+    font-size: 12px !important;
+}

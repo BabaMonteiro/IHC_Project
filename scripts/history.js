@@ -11,6 +11,7 @@ window.onload = () => {
     const calendarWrapper = document.querySelector('.calendar');
     calendar = new Calendar(calendarWrapper, today.getMonth()+1, today.getFullYear());
     calendar.create();
+    const emotionsHandler = new EmotionsHandler(calendar, document.querySelector('.emotions'));
 
     const prevMonthBtn = document.querySelector('.month-chooser div:nth-child(1)');
     const nextMonthBtn = document.querySelector('.month-chooser div:nth-child(3)');
@@ -19,13 +20,21 @@ window.onload = () => {
         const month = calendar.month - 1 < 1 ? 12 : calendar.month - 1;
         const year = calendar.month - 1 < 1 ? calendar.year - 1 : calendar.year;
         updateCalendar(calendar, month, year);
+        emotionsHandler.update(calendar);
     });
 
     nextMonthBtn.addEventListener('click', () => {
         const month = calendar.month + 1 > 12 ? 1 : calendar.month + 1;
         const year = calendar.month + 1 > 12 ? calendar.year + 1 : calendar.year;
         updateCalendar(calendar, month, year);
+        emotionsHandler.update(calendar);
     });
+
+    // fill calendar with emotions data
+    emotionsHandler.load();
+    console.log(emotionsHandler.emotions);
+    emotionsHandler.put();
+    emotionsHandler.updateLegend();
 }
 
 const updateCalendar = (calendar, month, year) => {
