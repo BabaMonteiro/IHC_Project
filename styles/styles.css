@@ -5,8 +5,8 @@
     --color4: #98A8F8;
 }   /*var(--color...)*/
 
-body {
-    font-family: 'Roboto', sans-serif;
+html {
+    font-family: 'Pastel Colors', sans-serif;
 }
 
 .page-title{
@@ -15,22 +15,22 @@ body {
 
 .topleft{
     position: absolute;
-    top: 18px;
-    left: 8px;
+    top: 1.5%;
+    left: 2%;
 }
 
 .topcenter{
     position: absolute;
     left: 30%;
     right: 30%;
-    top: -15px;
+    top: -2.05%;
     text-align: center;
 }
 
 .topright{
     position: absolute;
-    top: 18px;
-    right: 8px;
+    top: 1.5%;
+    right: 2%;
 }
 
 .fa-face-smile-beam {
