@@ -14,7 +14,7 @@ window.onload = () => {
         primaryColor: getComputedStyle(document.documentElement).getPropertyValue('--navbar-color'),
     });
     
-    calendar.create();
+    calendar.create(() => calendarWrapper.querySelector("p").remove());
     emotionsHandler = new EmotionsHandler(calendar, document.querySelector('.emotions'));
 
     const prevMonthBtn = document.querySelector('.month-chooser div:nth-child(1)');

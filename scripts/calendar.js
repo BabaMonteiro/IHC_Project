@@ -16,7 +16,7 @@ class Calendar {
             this.container.style.setProperty('--calendar-primary-color', this.primaryColor);
     }
 
-    create() {
+    create(callback) {
         for (let i = 0; i < this.maxRowsInMonth + 1; i++) {
             const daysRow = document.createElement('div');
             daysRow.classList.add('week-row');
@@ -32,6 +32,8 @@ class Calendar {
         }
 
         this.fill();
+
+        if (callback) callback();
     }
 
     update(month, year) {
@@ -69,7 +71,6 @@ class Calendar {
     }
 
     mapDays() {
-        const today = new Date();
         const days = [];
         let week = [];
         let currentDay = 1;
