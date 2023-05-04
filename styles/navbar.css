@@ -19,6 +19,10 @@ li {
     background-color: var(--navbar-color);
 }
 
+.navbar .active{
+    background-color: #BCCEF8;
+}
+
 .navbar i{
     color: #FAF7F0;
 }
