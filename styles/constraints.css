@@ -2,6 +2,8 @@
     --screen-width: 428px;
 }
 
+@import url('https://fonts.cdnfonts.com/css/pastel-colors');
+
 body {
     background-color: #ffc0cb;
     margin: 0;
