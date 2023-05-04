@@ -1,10 +1,19 @@
 class Calendar {
-    constructor(container, month, year) {
+    constructor(container, month, year, settings) {
         this.container = container;
+        this.settings = settings;
+        this.month = month;
+        this.year = year;
         this.update(month, year);
+
         this.weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
         this.maxRowsInMonth = 6;
         this.daysInWeek = 7;
+
+        this.highlightToday = settings?.highlightToday;
+        this.primaryColor = settings?.primaryColor;
+        if (this.primaryColor)
+            this.container.style.setProperty('--calendar-primary-color', this.primaryColor);
     }
 
     create() {
@@ -37,6 +46,8 @@ class Calendar {
     fill(month, year) {
         this.clear();
 
+        const today = new Date();
+
         if (month && year)
             this.update(month, year);
 
@@ -48,15 +59,21 @@ class Calendar {
             for (let j = 0; j < row.length; j++) {
                 const cellContent = elementsRow[j].querySelector('div');
                 cellContent.innerText = row[j];
+
+                if (this.highlightToday && row[j] == today.getDate() && this.month == today.getMonth() + 1 && this.year == today.getFullYear())
+                    elementsRow[j].classList.add('today');
+                else
+                    elementsRow[j].classList.remove('today');
             }
         }
     }
 
     mapDays() {
+        const today = new Date();
         const days = [];
         let week = [];
         let currentDay = 1;
-        console.log(this.daysInWeek, this.firstDayPos);
+        
         // first week
         for (let i = 0; i < this.daysInWeek; i++) {
             currentDay = i < this.firstDayPos ? '' : i - this.firstDayPos + 1;

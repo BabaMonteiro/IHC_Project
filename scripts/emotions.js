@@ -68,4 +68,19 @@ class EmotionsHandler {
             div.innerText = values[emotion] || 0;
         }
     }
+
+    add(day, emotion) {
+        const emotionData = { day, emotion };
+        this.emotions.push(emotionData);
+        localStorage.setItem(`${calendar.year}-${calendar.month}`, JSON.stringify(this.emotions));
+        
+        let datesGenerated = localStorage.getItem("dates-with-data");
+        datesGenerated = datesGenerated ? JSON.parse(datesGenerated) : [];
+        if (!datesGenerated.includes(`${calendar.year}-${calendar.month}`))
+            datesGenerated.push(`${calendar.year}-${calendar.month}`);
+        localStorage.setItem("dates-with-data", JSON.stringify(datesGenerated));
+
+        this.put();
+        this.updateLegend();
+    }
 }

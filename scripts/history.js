@@ -1,4 +1,4 @@
-let calendar;
+let calendar, emotionsHandler;
 const today = new Date();
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const yearLabel = document.querySelector(".year");
@@ -9,9 +9,13 @@ window.onload = () => {
     monthLabel.innerText = months[today.getMonth()];
 
     const calendarWrapper = document.querySelector('.calendar');
-    calendar = new Calendar(calendarWrapper, today.getMonth()+1, today.getFullYear());
+    calendar = new Calendar(calendarWrapper, today.getMonth()+1, today.getFullYear(), {
+        highlightToday: true,
+        primaryColor: getComputedStyle(document.documentElement).getPropertyValue('--navbar-color'),
+    });
+    
     calendar.create();
-    const emotionsHandler = new EmotionsHandler(calendar, document.querySelector('.emotions'));
+    emotionsHandler = new EmotionsHandler(calendar, document.querySelector('.emotions'));
 
     const prevMonthBtn = document.querySelector('.month-chooser div:nth-child(1)');
     const nextMonthBtn = document.querySelector('.month-chooser div:nth-child(3)');
@@ -32,7 +36,6 @@ window.onload = () => {
 
     // fill calendar with emotions data
     emotionsHandler.load();
-    console.log(emotionsHandler.emotions);
     emotionsHandler.put();
     emotionsHandler.updateLegend();
 }

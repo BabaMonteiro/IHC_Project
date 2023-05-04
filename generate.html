@@ -16,7 +16,16 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
+
+        <script>
+            // clear old data of dates "year-month"
+            const datesWithData = localStorage.getItem("dates-with-data");
+            if (datesWithData) {
+                const dates = datesWithData.split(",");
+                dates.forEach(date => localStorage.removeItem(date.replaceAll(/[\[\]"]/g, "")));
+            }
+        </script>
+
         <script src="scripts/data-generator.js" async defer></script>
     </body>
 </html>

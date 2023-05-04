@@ -4,18 +4,25 @@
  */
 
 (function () {
-    // data for history
-    const year = 2023;
-    const month = 2;
-    const day = 12;
+    const urlParams = new URLSearchParams(window.location.search);
     const emotions = ["smile-beam", "smile", "meh", "frown", "angry"];
+    
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+
+    const year = urlParams.get('year') || threeMonthsAgo.getFullYear();
+    const month = urlParams.get('month') || threeMonthsAgo.getMonth() + 1;
+    const day = urlParams.get('day') || threeMonthsAgo.getDate();
+
     const oldestDate = new Date(year, month - 1, day);
     const oldestYear = oldestDate.getFullYear();
     const oldestMonth = oldestDate.getMonth();
     const oldestDay = oldestDate.getDate();
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
+
     let emotionsData = [];
+    let datesGenerated = [];
 
     const random = (min, max) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -48,8 +55,11 @@
     }
 
     for (let emotion of emotionsData) {
-        localStorage.setItem(Object.keys(emotion)[0], JSON.stringify(emotion[Object.keys(emotion)[0]]));
+        const date = Object.keys(emotion)[0];
+        datesGenerated.push(date);
+        localStorage.setItem(date, JSON.stringify(emotion[Object.keys(emotion)[0]]));
     }
+    localStorage.setItem("dates-with-data", JSON.stringify(datesGenerated));
 
     // print emotions data to body
     const body = document.querySelector('body');
