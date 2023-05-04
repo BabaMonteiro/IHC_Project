@@ -1,4 +1,4 @@
-.journal {
+/* .journal {
     padding-left: 30px;
     padding-right: 30px;
     height: 75%;    
@@ -34,4 +34,33 @@
 .journal > form > input:hover{
     color: white;
     opacity: 0.8;
+} */
+
+
+.journals {
+    display: flex;
+    flex-direction: space-between;
+    height: 75%;    
+    width: 100%;
+    padding: 0px 8px;
+    box-sizing: border-box;
+}
+
+.grattitude_journal{
+    height: 90%;
+    background-color: aquamarine;
+    width: 50%;
+    margin-right: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.journal{
+    height: 90%;
+    background-color: blanchedalmond;
+    width: 50%; 
+    margin-left: 4px;
 }
