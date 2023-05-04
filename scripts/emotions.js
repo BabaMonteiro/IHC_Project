@@ -3,17 +3,18 @@ class EmotionsHandler {
         this.calendar = calendar;
         this.legend = legend;
         this.emotions = emotions;
-    }
 
-    load() {
-        const emotionsData = localStorage.getItem(`${calendar.year}-${calendar.month}`);
-        this.emotions = emotionsData ? JSON.parse(emotionsData) : [];
-    }
-
-    put() {
         if (this.calendar == null)
             throw new Error("Calendar is not initialized");
 
+        this.saver = new EmotionsSaver(localStorage, calendar.year, calendar.month);
+    }
+
+    load() {
+        this.emotions = this.saver.get(this.calendar.year, this.calendar.month);
+    }
+
+    put() {
         const calendarWrapper = this.calendar.container;
         const days = Array.from(calendarWrapper.querySelectorAll(".days div div"))
             .filter(div => div.innerText != "");
@@ -62,7 +63,6 @@ class EmotionsHandler {
         const valuesDivs = this.legend.querySelectorAll(".emotion-count");
         const values = {};
         this.emotions.forEach(({ emotion }) => values[emotion] = (values[emotion] || 0) + 1);
-        console.log(values);
         for (let div of valuesDivs) {
             const emotion = div.parentElement.querySelector("i").classList[1].replace("fa-face-", "");
             div.innerText = values[emotion] || 0;
@@ -70,17 +70,51 @@ class EmotionsHandler {
     }
 
     add(day, emotion) {
-        const emotionData = { day, emotion };
-        this.emotions.push(emotionData);
-        localStorage.setItem(`${calendar.year}-${calendar.month}`, JSON.stringify(this.emotions));
-        
-        let datesGenerated = localStorage.getItem("dates-with-data");
-        datesGenerated = datesGenerated ? JSON.parse(datesGenerated) : [];
-        if (!datesGenerated.includes(`${calendar.year}-${calendar.month}`))
-            datesGenerated.push(`${calendar.year}-${calendar.month}`);
-        localStorage.setItem("dates-with-data", JSON.stringify(datesGenerated));
+        this.emotions.push({day, emotion});
+        this.saver.add(day, emotion);
 
         this.put();
         this.updateLegend();
+    }
+}
+
+class EmotionsSaver {
+    constructor(storage, year, month) {
+        if (storage == null)
+            throw new Error("Storage is not initialized");
+
+        this.storage = storage;
+        this.year = year;
+        this.month = month;
+        this.tag = `${this.year}-${this.month}`;
+        
+        this.emotions = storage.getItem(this.tag);
+        this.emotions = this.emotions ? JSON.parse(this.emotions) : [];
+        this.datesWithData = storage.getItem("dates-with-data");
+        this.datesWithData = this.datesWithData ? JSON.parse(this.datesWithData) : [];
+    }
+
+
+    add(day, emotion) {
+        this.emotions.push({day, emotion})
+        this.storage.setItem(`${this.year}-${this.month}`, JSON.stringify(this.emotions));
+        this.updateDatesTrack();
+    }
+
+    add(emotions) {
+        this.storage.setItem(`${this.year}-${this.month}`, JSON.stringify(emotions));
+
+        this.updateDatesTrack();
+    }
+
+    get(year, month) {
+        const emotions = this.storage.getItem(`${year}-${month}`);
+        return emotions ? JSON.parse(emotions) : [];
+    }
+
+    updateDatesTrack() {
+        if (!this.datesWithData.includes(`${this.year}-${this.month}`))
+            this.datesWithData.push(`${this.year}-${this.month}`);
+        this.storage.setItem("dates-with-data", JSON.stringify(this.datesWithData));
     }
 }

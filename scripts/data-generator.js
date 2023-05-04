@@ -30,6 +30,7 @@
     
     let currentDate = new Date(oldestDate);
     while (currentDate <= yesterday) {
+        console.log(currentDate, yesterday);
         let tag = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1);
 
         // loop through each day in the month
@@ -54,12 +55,13 @@
         currentDate.setFullYear(nextYear);
     }
 
+    let saver;
     for (let emotion of emotionsData) {
         const date = Object.keys(emotion)[0];
         datesGenerated.push(date);
-        localStorage.setItem(date, JSON.stringify(emotion[Object.keys(emotion)[0]]));
+        saver = new EmotionsSaver(localStorage, date.split('-')[0], date.split('-')[1]);
+        saver.add(emotion[date]);
     }
-    localStorage.setItem("dates-with-data", JSON.stringify(datesGenerated));
 
     // print emotions data to body
     const body = document.querySelector('body');
