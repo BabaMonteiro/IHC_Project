@@ -13,26 +13,35 @@
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/navbar.css">
         <link rel="stylesheet" href="styles/constraints.css">
+        <link rel="stylesheet" href="styles/journal.css">
         <script src="https://kit.fontawesome.com/a033f223b4.js" crossorigin="anonymous"></script>
+        <script src="navbar.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <main>
             <div class="navbar-top">
                 <div class="topleft">
                     <a href="#"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
                 </div>
                 <div class="topcenter">
-                    <h1 class="page-title" style="padding-top: 5px;">TASKS</h1>
+                    <h1 class="page-title" style="padding-top: 5px;">JOURNALS</h1>
                 </div>
                 <div class="topright">
                     <a href="index.html"><i class="fa-solid fa-house-chimney fa-2xl"></i></a>
                 </div>
+            </div>
+            <div style="font-size: 20px; display: flex; justify-content: center; flex-direction: column; align-items: center; padding-top: 30px;">
+                <h1 style="margin-bottom: 0px;">Gratitude journal</h1>
+                <p style="margin-top: 0px;">How are you feeling today?</p>
+            </div>
+            <div class = "journal">
+                <form>
+                    <textarea ></textarea><br>
+                    <input type="submit" value="Save">
+                </form>
             </div>
             <div class="navbar">
                 <ul>
@@ -43,7 +52,10 @@
                 </ul>
             </div>
         </main>
-        
-        <script src="scripts/scripts.js" async defer></script>
+        <script src="scripts/navbar.js" async defer></script>
     </body>
+
+
+
+
 </html>
