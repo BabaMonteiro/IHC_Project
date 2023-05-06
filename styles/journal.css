@@ -39,28 +39,49 @@
 
 .journals {
     display: flex;
-    flex-direction: space-between;
     height: 75%;    
     width: 100%;
-    padding: 0px 8px;
+    padding: 0px 10px;
     box-sizing: border-box;
 }
 
 .grattitude_journal{
     height: 90%;
-    background-color: aquamarine;
-    width: 50%;
+    background-image: url(../resources/tentativa.png);
+    background-size: cover;
+    margin-bottom: 30px;
+    width:50%;
+    background-position: center;
     margin-right: 4px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+}
+
+.grattitude_journal > h1{
+    letter-spacing: 3px;
+    font-size:30px;
 }
 
 
-.journal{
+.daily_journal{
     height: 90%;
-    background-color: blanchedalmond;
-    width: 50%; 
-    margin-left: 4px;
+    background-image: url(../resources/tentativa.png);
+    background-size: cover;
+    margin-bottom: 30px;
+    width:50%;
+    background-position: center;
+    margin-right: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.daily_journal > h1{
+    letter-spacing: 3px;
+    font-size:30px;
 }

@@ -17,6 +17,7 @@ li {
     position: fixed;
     bottom: 0;
     background-color: var(--navbar-color);
+    height: 65px;
 }
 
 .navbar .active{
@@ -25,6 +26,7 @@ li {
 
 .navbar i{
     color: #FAF7F0;
+    margin-bottom: 15px;
 }
 
 .navbar img {
@@ -45,6 +47,16 @@ li {
     width: 100%;
     text-align: center;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar li p{
+    font-size: 15px;
+    margin-top: 0;
+    height: 100%;
+    padding-top: 1.5px;
+    color: #FAF7F0;
 }
 
 .navbar li:not(:last-child) {
@@ -58,6 +70,7 @@ li {
 .navbar-top{
     display: fixed;
     flex-direction: row;
+    font-family: 'Pastel Colors', sans-serif;
 }
 
 .navbar-top i{
