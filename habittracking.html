@@ -13,9 +13,10 @@
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/navbar.css">
         <link rel="stylesheet" href="styles/constraints.css">
-        <link rel="stylesheet" href="styles/journal.css">
+        <link rel="stylesheet" href="styles/habittracking.css">
         <script src="https://kit.fontawesome.com/a033f223b4.js" crossorigin="anonymous"></script>
         <script src="navbar.js"></script>
+        <script src="./scripts/habittracker.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.cdnfonts.com/css/pastel-colors" rel="stylesheet">
@@ -27,32 +28,25 @@
                     <a href="#"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
                 </div>
                 <div class="topcenter">
-                    <h1 class="page-title">JOURNALS</h1>
+                    <h1 class="page-title">HABITS</h1>
                 </div>
                 <div class="topright">
                     <a href="index.html"><i class="fa-solid fa-house-chimney fa-2xl"></i></a>
                 </div>
             </div>
-            <div style="font-size: 20px; display: flex; justify-content: center; flex-direction: column; align-items: center; padding-top: 30px;">
-                <h2 style="margin-bottom: 0px;">Your Journals</h1>
-                <p style="margin-top: 0px;">What do you feel like writing today?</p>
-            </div>
-            <div class = "journals">
-                <div class = "grattitude_journal">
-                    <h1 style="margin-bottom: 0px;">Gratitude</h1>
-                    <h1 style="margin-top: 0px;">journal</h1>
-                 </div>
-                <div class = "daily_journal"> 
-                    <h1 style="margin-bottom: 0px;">Daily</h1>
-                    <h1 style="margin-top: 0px;">journal</h1>
+            <div class = "all_tasks">
+                <div id="tasks"></div>
+                <div id="newtask">
+                    <input type="text" placeholder="Write here...">
+                    <button id="push">+</button>
                 </div>
             </div>
             <div class="navbar">
                 <ul>
-                    <li> <a href="habittracking.html"><i class="fa-solid fa-list-check fa-2xl"></i></a>
+                    <li class="active"> <a href="#"><i class="fa-solid fa-list-check fa-2xl"></i></a>
                         <p style>Tasks</p>
                     </li>
-                    <li class="active"><a href="journal.html"><i class="fa-solid fa-book fa-2xl"></i></a>
+                    <li><a href="journal.html"><i class="fa-solid fa-book fa-2xl"></i></a>
                         <p>Journals</p>
                     </li>
                     <li><a href="history.html"><i class="fa-solid fa-calendar-check fa-2xl"></i></a>
@@ -65,6 +59,7 @@
             </div>
         </main>
         <script src="scripts/navbar.js" async defer></script>
+        <script src="./scripts/habittracker.js" async defer></script>
     </body>
 
 
