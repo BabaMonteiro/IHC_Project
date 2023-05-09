@@ -1,12 +1,25 @@
 document.querySelector('#push').onclick = function(){
     var tasks = document.querySelectorAll('.task');
-    if (tasks.length >= 2) {
-        alert('You can only have three tasks per session!');
-    } else if (document.querySelector('#newtask input').value.length != 0){
+    var taskNameInput = document.querySelector('#newtask input');
+    var newTaskName = taskNameInput.value;
+    var isTaskNameRepeated = false;
+    // var list = document.querySelector('.task');
+
+  
+    for (var i=0; i<tasks.length; i++){
+        var taskName = tasks[i].querySelector('#taskname').innerHTML;
+        if (taskName === newTaskName){
+            isTaskNameRepeated = true;
+            alert('This task already exists!');
+            break;
+        }
+    }
+
+    if (!isTaskNameRepeated && newTaskName.length !== 0){
         document.querySelector('#tasks').innerHTML += `
             <div class="task">
                 <span id="taskname">
-                    ${document.querySelector('#newtask input').value}
+                    ${newTaskName}
                 </span>
                 <button class="delete">
                     <i class="far fa-trash-alt"></i>
@@ -17,10 +30,13 @@ document.querySelector('#push').onclick = function(){
         var current_tasks = document.querySelectorAll('.delete');
         for (var i=0; i<current_tasks.length; i++){
             current_tasks[i].onclick = function(){
-                this.parentNode.remove();
+                var confirmed = confirm('Are you sure you want to delete this task?');
+                if (confirmed) {
+                    this.parentNode.remove();
+                }
             };
         }
-    } 
-        
-};
 
+        taskNameInput.value = '';
+    }
+};

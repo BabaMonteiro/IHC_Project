@@ -1,21 +1,22 @@
 
 .all_tasks{
-    height: 80%;    
+    height: 70%;    
     width: 100%;
-    margin-top: 12%;
+    justify-content: end;
+    margin-top:145px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    /* border: #111111;
-    border-radius: 4px; */
+    border: 5px solid #98A8F8;
+    border-radius: 4px;
 }
 
 #newtask{
     
-    display: flex;
+    margin-top: 5px;
     position: relative;
     align-items: center;
-    margin-top:200px;
+    height: 45px;
     
 }
 #newtask input{
@@ -24,10 +25,9 @@
     width: 80%;
     border: none;
     border-bottom: 2px solid #d1d3d4;
-    height: 45px;
-    padding: 0 1px; 
     color: #111111;
     font-weight: 500;
+    margin-top: 10px;
     position: relative;
     font-size: 15px;
 }
@@ -38,8 +38,8 @@
     
 }
 #newtask button{
-    margin-top: 10px;
-    margin-right: 10px;
+    margin-top: -30px;
+    margin-right: 15px;
     position: relative;
     float: right;
     font-weight: 700;
@@ -53,42 +53,44 @@
     border-radius: 50%;
 }
 #tasks{
-    display: flex;
+    margin-top: 90px;
     position: relative;
     align-items: center;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    /* margin-bottom: 300px; */
     
 }
 
 .task{
     margin-left: 20px;
-    margin-right: 10px;
+    margin-right: 30px;
     align-items: center;
     justify-content: space-between;
     border: none;
     border-bottom: 1px solid #98A8F8;;
     height: 45px;
-    padding: 0 1px;
     position: relative; 
-    margin-bottom: 8px;
-    width: 80%;
 }
 
 .task span{
+    position: fixed;
+    margin-top: 15px;
     font-size: 15px;
     font-weight: 400;
 }
 
 .task button{
     margin-top: 10px;
-    margin-right: 0px;
-    background-color: #6583e5;
-    color: #ffffff;
-    border: none;
+    margin-right: 15px;
+    background-color: #ffffff;
+    color: black;
     float: right;
     position: relative;
     cursor: pointer;
     outline: none;
     width: 35px;
     height: 35px;
-    border-radius: 50%;
+    border: none;
 }
