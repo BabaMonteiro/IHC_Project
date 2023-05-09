@@ -36,17 +36,18 @@
     opacity: 0.8;
 } */
 
-
 .journals {
     display: flex;
-    height: 75%;    
+    height: calc(100vh - 400px);    
     width: 100%;
     padding: 0px 9px;
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .grattitude_journal{
-    height: 90%;
+    margin-top: 0px;
+    height: 100%;
     background-image: url(../resources/tentativa.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -67,7 +68,8 @@
 
 
 .daily_journal{
-    height: 90%;
+    margin-top: 0px;
+    height: 100%;
     background-image: url(../resources/tentativa.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -85,3 +87,20 @@
     letter-spacing: 3px;
     font-size:30px;
 }
+
+.upload_mood{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+
+}
+
+.upload_mood > img{
+    margin-top: 0px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
