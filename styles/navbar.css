@@ -3,6 +3,10 @@
     --navbar-color: #98A8F8;
 }
 
+main {
+    margin-bottom: 65px;
+}
+
 ul {
     padding: 0;
     margin: 0;

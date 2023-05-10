@@ -1,9 +1,10 @@
+let changes = false;
+
 const dateHeader = document.querySelector('#date');
 const today = new Date();
-dateHeader.innerHTML = today.toDateString();
 
 const fillData = (date) => {
-    const data = localStorage.getItem(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`);
+    const data = localStorage.getItem(`journal-${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`);
     if (data) {
         const parsedData = JSON.parse(data);
         document.querySelector("textarea").value = parsedData.journalContent;
@@ -12,6 +13,8 @@ const fillData = (date) => {
                 emotion.classList.add("selected");
         });
     }
+    dateHeader.innerHTML = date.toDateString();
+    dateHeader.parentElement.href = `history.html?date=${date.getMonth()+1}-${date.getFullYear()}`;
 }
 
 // parse url params
@@ -19,10 +22,8 @@ const urlParams = new URLSearchParams(window.location.search);
 let date = today;
 if (urlParams.has('date')) {
     const newDate = new Date(urlParams.get('date'));
-    if (newDate != "Invalid Date" && newDate <= today) {
+    if (newDate != "Invalid Date" && newDate <= today)
         date = newDate;
-        dateHeader.innerHTML = date.toDateString();
-    }
 }
 
 fillData(date);
@@ -32,6 +33,7 @@ document.addEventListener("click", e => {
     if (e.target.closest(".emotion")) {
         document.querySelectorAll(".emotion").forEach(emotion => emotion.classList.remove("selected"));
         e.target.closest(".emotion").classList.add("selected");
+        changes = true;
     }
 });
 
@@ -44,7 +46,7 @@ send.addEventListener("click", () => {
                     : null;
     const date = new Date(dateHeader.innerHTML);
     localStorage.setItem(
-        `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
+        `journal-${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
         JSON.stringify({
             emotion: emotion,
             journalContent: journalContent
@@ -53,6 +55,18 @@ send.addEventListener("click", () => {
 
     const save = new EmotionsSaver(localStorage, date.getFullYear(), date.getMonth()+1);
     save.add(date.getDate(), emotion);
-
+    
+    changes = false;
     window.location.reload();
+});
+
+const input = document.querySelector("textarea");
+input.addEventListener("input", () => changes = true);
+
+window.addEventListener("beforeunload", e => {
+    console.log(e);
+    if (changes) {
+        e.preventDefault();
+        e.returnValue = confirm("You have unsaved changes. Are you sure you want to leave?");
+    }
 });

@@ -44,6 +44,15 @@
                 day: day,
                 emotion: randomEmotion
             });
+
+            // save journal emotion entry to local storage
+            localStorage.setItem(
+                `journal-${currentDate.getFullYear()}-${currentDate.getMonth()}-${day}`,
+                JSON.stringify({
+                    emotion: randomEmotion,
+                    journalContent: "This journal entry was generated automatically."
+                })
+            );
         }
         emotionsData.push({[tag]: data});
         data = [];

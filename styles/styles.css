@@ -3,6 +3,11 @@
     --color2: #CDFCF6;
     --color3: #BCCEF8;
     --color4: #98A8F8;
+    --color-angry: #b56363;
+    --color-frown: #f9bb5e;
+    --color-meh: #dbdd37;
+    --color-smile: #86c76d;
+    --color-smile-beam: #70a0c7;
 }   /*var(--color...)*/
 
 html {
@@ -34,27 +39,27 @@ html {
 }
 
 .fa-face-smile-beam {
-    color: #70a0c7;
+    color:  var(--color-smile-beam);
     font-size: 28px;
 }
 
 .fa-face-smile {
-    color: #86c76d;
+    color: var(--color-smile);
     font-size: 28px; 
 }
 
 .fa-face-meh {
-    color: #dbdd37;
+    color: var(--color-meh);
     font-size: 28px; 
 }
 
 .fa-face-frown {
-    color: #f9bb5e;
+    color: var(--color-frown);
     font-size: 28px; 
 }
 
 .fa-face-angry {
-    color: #b56363;
+    color: var(--color-angry);
     font-size: 28px; 
 }
 
