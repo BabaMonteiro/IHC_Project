@@ -44,6 +44,15 @@
                 day: day,
                 emotion: randomEmotion
             });
+
+            // save journal emotion entry to local storage
+            localStorage.setItem(
+                `journal-${currentDate.getFullYear()}-${currentDate.getMonth()}-${day}`,
+                JSON.stringify({
+                    emotion: randomEmotion,
+                    journalContent: "This journal entry was generated automatically."
+                })
+            );
         }
         emotionsData.push({[tag]: data});
         data = [];
@@ -60,7 +69,7 @@
         const date = Object.keys(emotion)[0];
         datesGenerated.push(date);
         saver = new EmotionsSaver(localStorage, date.split('-')[0], date.split('-')[1]);
-        saver.add(emotion[date]);
+        saver.addAll(emotion[date]);
     }
 
     // print emotions data to body

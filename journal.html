@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="styles/constraints.css">
         <link rel="stylesheet" href="styles/journal.css">
         <script src="https://kit.fontawesome.com/a033f223b4.js" crossorigin="anonymous"></script>
-        <script src="navbar.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.cdnfonts.com/css/pastel-colors" rel="stylesheet">
@@ -35,21 +34,43 @@
             </div>
             <div style="font-size: 20px; display: flex; justify-content: center; flex-direction: column; align-items: center; padding-top: 30px;">
                 <h2 style="margin-bottom: 0px;">Your Journals</h1>
-                <p style="margin-top: 0px;">What do you feel like writing today?</p>
+                <a href="#"><p id="date" style="margin-top: 0px;"></p></a>
             </div>
-            <div class = "journals">
-                <div class = "grattitude_journal">
-                    <h1 style="margin-bottom: 0px;">Gratitude</h1>
-                    <h1 style="margin-top: 0px;">journal</h1>
-                 </div>
-                <div class = "daily_journal"> 
-                    <h1 style="margin-bottom: 0px;">Daily</h1>
-                    <h1 style="margin-top: 0px;">journal</h1>
+            <div class="journal-input">
+                <div>
+                    <textarea placeholder="Write about your day..." cols="40" rows="15"></textarea>
                 </div>
             </div>
-            <div class="upload_mood">
-                <img src="./resources/tentativa_mood_thumbnail (5).png" alt="Upload">
+            <div class="emotions">
+                <div class="emotion">
+                    <i class="fa-solid fa-face-smile-beam"></i>
+                    <div>Gleaming</div>
+                </div>
+                <div class="emotion">
+                    <i class="fa-solid fa-face-smile"></i>
+                    <div>Happy</div>
+                </div>
+                <div class="emotion">
+                    <i class="fa-solid fa-face-meh"></i>
+                    <div>OK</div>
+                </div>
+                <div class="emotion">
+                    <i class="fa-solid fa-face-frown"></i>
+                    <div>Sad</div>
+                </div>
+                <div class="emotion">
+                    <i class="fa-solid fa-face-angry"></i>
+                    <div>Angry</div>
+                </div>
             </div>
+
+            <!--
+            <div class="upload_mood">
+                <img src="resources/mood_photo.png" alt="Upload">
+            </div>
+            -->
+            <div id="send">Save</div>
+
             <div class="navbar">
                 <ul>
                     <li> <a href="habittracking.html"><i class="fa-solid fa-list-check fa-2xl"></i></a>
@@ -67,10 +88,9 @@
                 </ul>
             </div>
         </main>
-        <script src="scripts/navbar.js" async defer></script>
+    
+        <script src="scripts/emotions.js" async defer></script>
+        <script src="scripts/journal.js" async defer></script>
     </body>
-
-
-
 
 </html>

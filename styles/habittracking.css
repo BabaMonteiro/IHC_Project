@@ -1,6 +1,8 @@
+main {
+    padding-top: 70px;
+}
 
 .all_tasks{
-    height: calc(100vh - 75px - 60px);  
     width: 90%;
     margin: 0 auto;
     justify-content: end;
@@ -10,8 +12,14 @@
     border: 5px solid #98A8F8;
     border-radius: 10px;
     align-items: center;
-    margin-top: 60px;
-    
+    height: 70vh;
+}
+
+#date {
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: gray;
 }
 
 #newtask{

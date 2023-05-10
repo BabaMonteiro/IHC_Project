@@ -19,11 +19,10 @@
 
         <script>
             // clear old data of dates "year-month"
-            const datesWithData = localStorage.getItem("dates-with-data");
-            if (datesWithData) {
-                const dates = datesWithData.split(",");
-                dates.forEach(date => localStorage.removeItem(date.replaceAll(/[\[\]"]/g, "")));
-            }
+            Object.keys(localStorage).forEach(key => {
+                if (key.includes("emotions-") || key.includes("journal-"))
+                    localStorage.removeItem(key);
+            });
         </script>
 
         <script src="scripts/emotions.js" async defer></script>

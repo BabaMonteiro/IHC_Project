@@ -76,6 +76,14 @@ class EmotionsHandler {
         this.put();
         this.updateLegend();
     }
+
+    get(day) {
+        return this.emotions.find(e => e.day == day);
+    }
+
+    getType(type) {
+        return this.emotions.filter(e => e.emotion == type);
+    }
 }
 
 class EmotionsSaver {
@@ -86,7 +94,7 @@ class EmotionsSaver {
         this.storage = storage;
         this.year = year;
         this.month = month;
-        this.tag = `${this.year}-${this.month}`;
+        this.tag = `emotions-${this.year}-${this.month}`;
         
         this.emotions = storage.getItem(this.tag);
         this.emotions = this.emotions ? JSON.parse(this.emotions) : [];
@@ -96,25 +104,27 @@ class EmotionsSaver {
 
 
     add(day, emotion) {
+        if (this.emotions.find(e => e.day == day))
+            this.emotions = this.emotions.filter(e => e.day != day);
         this.emotions.push({day, emotion})
-        this.storage.setItem(`${this.year}-${this.month}`, JSON.stringify(this.emotions));
-        this.updateDatesTrack();
+        this.storage.setItem(`emotions-${this.year}-${this.month}`, JSON.stringify(this.emotions));
+        this.updateDatesTracking();
     }
 
-    add(emotions) {
-        this.storage.setItem(`${this.year}-${this.month}`, JSON.stringify(emotions));
+    addAll(emotions) {
+        this.storage.setItem(`emotions-${this.year}-${this.month}`, JSON.stringify(emotions));
 
-        this.updateDatesTrack();
+        this.updateDatesTracking();
     }
 
     get(year, month) {
-        const emotions = this.storage.getItem(`${year}-${month}`);
+        const emotions = this.storage.getItem(`emotions-${year}-${month}`);
         return emotions ? JSON.parse(emotions) : [];
     }
 
-    updateDatesTrack() {
-        if (!this.datesWithData.includes(`${this.year}-${this.month}`))
-            this.datesWithData.push(`${this.year}-${this.month}`);
+    updateDatesTracking() {
+        if (!this.datesWithData.includes(`emotions-${this.year}-${this.month}`))
+            this.datesWithData.push(`emotions-${this.year}-${this.month}`);
         this.storage.setItem("dates-with-data", JSON.stringify(this.datesWithData));
     }
 }

@@ -1,25 +1,29 @@
 .emotions {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
     padding: 10px;
+    margin: 20px auto;
+    place-items: center;
+    width: 90%;
 }
 
-.emotions > div {
+.emotion {
     width: 100%;
     text-align: center;
+    padding: 10px;
+    border: 3px solid white;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
 }
 
-.emotions > div > i {
+.emotion > i {
     margin-bottom: 5px;
 }
 
-.emotions > div > div {
+.emotion > div {
     color: gray;
     font-size: 16px;
-}
-
-.emotions > div > div:last-child {
-    margin-top: 5px;
-    font-size: 13px;
 }
 
 .has-emotion {
@@ -28,4 +32,41 @@
     left: unset !important;
     top: unset !important;
     font-size: 12px !important;
+}
+
+.days {
+    cursor: pointer;
+}
+
+.emotions-progress {
+    width: 90%;
+    height: 30px;
+    display: flex;
+    margin: auto;
+}
+
+.emotions-progress > div {
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s;
+}
+
+.emotions-progress > div:nth-child(1) {
+    background-color: var(--color-angry);
+}
+
+.emotions-progress > div:nth-child(2) {
+    background-color: var(--color-frown);
+}
+
+.emotions-progress > div:nth-child(3) {
+    background-color: var(--color-meh);
+}
+
+.emotions-progress > div:nth-child(4) {
+    background-color: var(--color-smile);
+}
+
+.emotions-progress > div:nth-child(5) {
+    background-color: var(--color-smile-beam);
 }
