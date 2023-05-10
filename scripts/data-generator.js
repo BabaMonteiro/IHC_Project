@@ -60,7 +60,7 @@
         const date = Object.keys(emotion)[0];
         datesGenerated.push(date);
         saver = new EmotionsSaver(localStorage, date.split('-')[0], date.split('-')[1]);
-        saver.add(emotion[date]);
+        saver.addAll(emotion[date]);
     }
 
     // print emotions data to body

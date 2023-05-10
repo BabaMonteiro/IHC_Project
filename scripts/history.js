@@ -45,3 +45,13 @@ const updateCalendar = (calendar, month, year) => {
     monthLabel.innerText = months[month - 1];
     calendar.fill(month, year);
 }
+
+document.addEventListener("click", e => {
+    if (e.target.closest(".days") && e.target.className != "week-row days") {
+        const day = e.target.innerText;
+        const month = calendar.month;
+        const year = calendar.year;
+        if (Number(day) <= new Date().getDate())
+            window.location.href = `journal.html?date=${month}-${day}-${year}`;
+    }
+});

@@ -29,3 +29,7 @@
     top: unset !important;
     font-size: 12px !important;
 }
+
+.days {
+    cursor: pointer;
+}

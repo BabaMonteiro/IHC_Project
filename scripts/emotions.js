@@ -96,15 +96,17 @@ class EmotionsSaver {
 
 
     add(day, emotion) {
+        if (this.emotions.find(e => e.day == day))
+            this.emotions = this.emotions.filter(e => e.day != day);
         this.emotions.push({day, emotion})
         this.storage.setItem(`${this.year}-${this.month}`, JSON.stringify(this.emotions));
-        this.updateDatesTrack();
+        this.updateDatesTracking();
     }
 
-    add(emotions) {
+    addAll(emotions) {
         this.storage.setItem(`${this.year}-${this.month}`, JSON.stringify(emotions));
 
-        this.updateDatesTrack();
+        this.updateDatesTracking();
     }
 
     get(year, month) {
@@ -112,7 +114,7 @@ class EmotionsSaver {
         return emotions ? JSON.parse(emotions) : [];
     }
 
-    updateDatesTrack() {
+    updateDatesTracking() {
         if (!this.datesWithData.includes(`${this.year}-${this.month}`))
             this.datesWithData.push(`${this.year}-${this.month}`);
         this.storage.setItem("dates-with-data", JSON.stringify(this.datesWithData));

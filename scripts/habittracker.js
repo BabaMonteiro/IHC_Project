@@ -40,3 +40,16 @@ document.querySelector('#push').onclick = function(){
         taskNameInput.value = '';
     }
 };
+
+const dateHeader = document.querySelector('#date');
+const today = new Date();
+dateHeader.innerHTML = today.toDateString();
+
+// parse url params
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('date')) {
+    const date = new Date(urlParams.get('date'));
+    dateHeader.innerHTML = date.toDateString();
+
+    // load tasks from local storage for this date
+}

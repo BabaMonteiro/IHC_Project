@@ -63,10 +63,6 @@ li {
     border-right: 1px solid silver;
 }
 
-.navbar li.active a{
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 .navbar-top{
     display: fixed;
     flex-direction: row;
@@ -74,7 +70,7 @@ li {
 }
 
 .navbar-top i{
-    color:#98A8F8
+    color: var(--navbar-color)
 }
 
 @media only screen and (max-width: 428px) {
