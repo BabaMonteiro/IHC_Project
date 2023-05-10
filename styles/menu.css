@@ -1,0 +1,88 @@
+.squares{
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 75px - 70px); 
+    margin-top: 0px;
+    display: flex;
+    flex-direction: space-between;
+}
+
+.moodmate{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #98A8F8;
+}
+.moodmate > h1{
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}
+
+.tl-sq{
+    border-radius: 10px;
+    background-color: #CDFCF6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}
+
+.tr-sq{
+    border-radius: 10px;
+    background-color: #BCCEF8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}
+.ml-sq{
+    border-radius: 10px;
+    background-color: #BCCEF8;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}
+.mr-sq{
+    border-radius: 10px;
+    background-color: #CDFCF6;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}
+
+.img{
+    width: 100%;
+    height: 100%;
+}
