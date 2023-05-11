@@ -115,6 +115,9 @@ main {
     position: absolute;
     top: 160px;
     width: 100%;
+    overflow-x: hidden;
+    height: 240px;
+    overflow-y: auto;
     /* margin-bottom: 300px; */
 }
 
