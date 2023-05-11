@@ -1,0 +1,25 @@
+.milestones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    height: calc(100vh - 75px - 60px);
+    flex-direction: column;
+  }
+  
+ 
+  
+  .milestones > trophy-pair {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    margin: 30px;
+  }
+
+  .trophy-pair > i{
+    margin: 40px;
+    font-size: 6em;
+    color: var(--color3);
+    
+  }

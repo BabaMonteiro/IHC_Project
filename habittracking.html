@@ -22,11 +22,11 @@
     <body>
         <main>
             <div class="navbar-top">
-                <div class="topleft">
+                <!-- <div class="topleft">
                     <a href="profile.html"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
-                </div>
+                </div> -->
                 <div class="topcenter">
-                    <h1 class="page-title">HABITS</h1>
+                    <h1 class="page-title">TASKS</h1>
                 </div>
                 <div class="topright">
                     <a href="index.html"><i class="fa-solid fa-house-chimney fa-2xl"></i></a>
@@ -34,7 +34,16 @@
             </div>
             <div id="date">Thursday, May 10th</div>
             <div class = "all_tasks">
-                <div id="tasks"></div>
+                    <h2>Predefined Tasks</h2>
+                    <ul>
+                        <li><input type="checkbox" id="task1" name="task1" value="task1"><label for="task1">Drink 2L Water</label></li>
+                        <li><input type="checkbox" id="task2" name="task2" value="task2"><label for="task2">Sleep 8 hours</label></li>
+                        <li><input type="checkbox" id="task3" name="task3" value="task3"><label for="task3">Walked 1000 steps</label></li>
+                    </ul>
+                    <h2 style="margin-top: 135px;">Custom Tasks</h2>
+                <div id="tasks">
+                    
+                </div>
                 <div id="newtask">
                     <input type="text" placeholder="Write here...">
                     <button id="push">+</button>
@@ -51,7 +60,7 @@
                     <li><a href="history.html"><i class="fa-solid fa-calendar-check fa-2xl"></i></a>
                         <p>Calendar</p>
                     </li>
-                    <li><a href="#"><i class="fa-solid fa-award fa-2xl"></i></a>
+                    <li><a href="milestones.html"><i class="fa-solid fa-award fa-2xl"></i></a>
                         <p>Milestones</p>
                     </li>
                 </ul>
