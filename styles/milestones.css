@@ -1,25 +1,21 @@
 .milestones {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
     height: calc(100vh - 75px - 60px);
-    flex-direction: column;
+    margin-top: 60px;
   }
   
  
   
-  .milestones > trophy-pair {
-    display: flex;
+  .milestones > .trophy-pair {
     justify-content: center;
     align-items: center;
-    margin: 20px;
-    margin: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
   .trophy-pair > i{
-    margin: 40px;
-    font-size: 6em;
+    display: block;
+    margin: 20px;
+    font-size: 4em;
     color: var(--color3);
-    
+    text-align: center;
   }
