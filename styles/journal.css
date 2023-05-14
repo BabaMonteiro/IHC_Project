@@ -111,6 +111,14 @@
     width: 85vw;
 }
 
+.journal-input > h3{
+    text-align: center;
+    padding-bottom: 0px;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: gray;
+    font-weight: 600;
+}
 #date {
     color: gray;
 }
@@ -119,6 +127,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
     padding: 10px;
+    padding-top: 0px;
     margin: 20px auto;
     place-items: center;
     width: 90%;
