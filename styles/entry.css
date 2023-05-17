@@ -15,6 +15,9 @@ main{
     margin: 10px;
     background-color: white;
     border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .select_type > h1{
@@ -46,5 +49,35 @@ main{
     text-align: center;
     font-size: 20px;
     font-weight: 800px;
+    color: gray;
+}
+
+.select_type > select{
+    width: 100%;
+    font-size: 17px;
+    color: gray;
+    border: none;
+    outline: none;
+    background-color: white;
+    padding: 20px;
+}
+
+.select_type > button{
+
+    font-size: 17px;
+    letter-spacing: 4px;
+    align-self: center;
+    border-radius: 40px;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 0px;
+    border: none;
+    background-color: var(--color3);
+    cursor: pointer;
+}
+
+.select_type > a{
+    padding: 5px;
+    font-size: 15px;
     color: gray;
 }

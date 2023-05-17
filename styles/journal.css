@@ -168,6 +168,7 @@
     cursor: pointer;
 }
 
+
 @media only screen and (min-width: 428px) {
     .journal-input textarea {
         width: calc(var(--screen-width) - 60px);
