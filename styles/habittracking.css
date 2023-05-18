@@ -5,7 +5,6 @@ main {
 .all_tasks{
     width: 90%;
     margin: 0 auto;
-    justify-content: end;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -17,7 +16,6 @@ main {
 }
 
 .all_tasks >  h2{
-    position: absolute;
     top: 0;
     margin-top: 8px;
     border: none;
@@ -33,9 +31,8 @@ main {
 .all_tasks > ul{
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 40px;
     width: 98%;
+    margin-bottom: 20px;
 }
 
 .all_tasks > ul > li{
@@ -74,9 +71,9 @@ main {
 #newtask{
     
     margin-top: 5px;
-    position: relative;
+    position: absolute;
     height: 45px;
-    
+    bottom: 0;
 }
 
 #newtask input{
@@ -112,13 +109,10 @@ main {
     border-radius: 50%;
 }
 #tasks{
-    position: absolute;
-    top: 160px;
     width: 100%;
     overflow-x: hidden;
-    height: 240px;
+    height: 310px;
     overflow-y: auto;
-    /* margin-bottom: 300px; */
 }
 
 

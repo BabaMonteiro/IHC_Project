@@ -168,6 +168,23 @@
     cursor: pointer;
 }
 
+#feedback-message {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    margin: auto;
+    opacity: 0.8;
+    width: fit-content;
+    height: fit-content;
+    z-index: 1;
+    background-color: var(--color3);
+    color:black;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
 
 @media only screen and (min-width: 428px) {
     .journal-input textarea {
