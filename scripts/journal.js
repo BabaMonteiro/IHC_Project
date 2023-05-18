@@ -42,7 +42,7 @@ send.addEventListener("click", () => {
   const journalContent = document.querySelector("textarea").value;
   const selectedEmotion = document.querySelector(".selected");
   var feedbackMessage = document.getElementById('feedback-message');
-
+  var main = document.getElementById('main');
   const emotion = selectedEmotion ?
     selectedEmotion.querySelector("i").classList[1].replace("fa-face-", "") :
     null;
@@ -60,11 +60,11 @@ send.addEventListener("click", () => {
 
   changes = false;
   
-  feedbackMessage.textContent = 'Saved entry. Redirecting...';
-  
+  feedbackMessage.style.removeProperty('display');
+  main.style = 'filter: brightness(0.6);'
   setTimeout(function () {
     window.location.href = './history.html';
-  }, 2000);
+  }, 500);
 });
 
 const input = document.querySelector("textarea");
