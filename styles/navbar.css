@@ -17,6 +17,7 @@ li {
 }
 
 .navbar {
+    display: fixed;
     width: var(--screen-width);
     position: fixed;
     bottom: 0;

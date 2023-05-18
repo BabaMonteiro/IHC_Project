@@ -12,10 +12,28 @@
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
-  .trophy-pair > i{
+  .gold{
+    color: #D4AF37 !important;
+  }
+
+  .silver{
+    color: #CCCCCC !important
+  }
+
+  .bronze{
+    color: #CD7F32 !important
+  }
+
+  .trophy-pair i{
     display: block;
     margin: 20px;
     font-size: 4em;
     color: var(--color3);
     text-align: center;
+  }
+
+  .trophy-pair p{
+    font-family: 'Pastel Colors', sans-serif;
+    font-size: 1em;
+    color: var(--color4)
   }
