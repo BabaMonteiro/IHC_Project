@@ -1,0 +1,24 @@
+[
+    {
+        "topic": "Smoking addiction",
+        "tasks": [
+            "Don't smoke for 1 day",
+            "Go for run"
+        ]
+    },
+    {
+        "topic": "Depression",
+        "tasks": [
+            "Go for a walk",
+            "Talk to a friend",
+            "Do something you enjoy"
+        ]
+    },
+    {
+        "topic": "Weight loss",
+        "tasks": [
+            "Eat a salad",
+            "Drink water"
+        ]
+    }
+]
