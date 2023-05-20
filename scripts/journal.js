@@ -15,6 +15,21 @@ const fillData = (date) => {
   }
   dateHeader.innerHTML = date.toDateString();
   dateHeader.parentElement.href = `history.html?date=${date.getMonth() + 1}-${date.getFullYear()}`;
+
+  // add links to arrows
+  const prev = dateHeader.parentElement.previousElementSibling;
+  const next = dateHeader.parentElement.nextElementSibling;
+  const nextDate = new Date(date);
+  nextDate.setDate(nextDate.getDate() + 1);
+  const prevDate = new Date(date);
+  prevDate.setDate(prevDate.getDate() - 1);
+  prev.href = `journal.html?date=${prevDate.getFullYear()}-${prevDate.getMonth() + 1}-${prevDate.getDate()}`;
+  next.href = `journal.html?date=${nextDate.getFullYear()}-${nextDate.getMonth() + 1}-${nextDate.getDate()}`;
+
+  if (date.getDate() == today.getDate() && date.getMonth() == today.getMonth() && date.getFullYear() == today.getFullYear())
+    next.style.visibility = "hidden";
+  else
+    next.style.removeProperty("visibility");
 }
 
 // parse url params

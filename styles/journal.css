@@ -186,6 +186,26 @@
     border-radius: 10px;
 }
 
+.date-chooser {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.date-chooser > a:not(:nth-child(2)) {
+    width: 40%;
+}
+
+.date-chooser > a:nth-child(2) {
+    width: 100%;
+}
+
+.date-chooser > a:nth-child(2) > p {
+    display: unset !important;
+}
+
 @media only screen and (min-width: 428px) {
     .journal-input textarea {
         width: calc(var(--screen-width) - 60px);
