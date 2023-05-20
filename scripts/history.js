@@ -13,6 +13,13 @@ if (urlParams.has('date')) {
         date = newDate;
 }
 
+const updateUrlValue = (key, value) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set(key, value);
+    const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+    history.replaceState(null, '', newUrl);
+}
+
 window.onload = () => {
     yearLabel.innerText = date.getFullYear();
     monthLabel.innerText = months[date.getMonth()];
@@ -35,6 +42,13 @@ window.onload = () => {
         updateCalendar(calendar, month, year);
         emotionsHandler.update(calendar);
         updateEmotionsProgress(emotionsHandler);
+    
+        // update url value to match the new month
+        updateUrlValue('date', `${month}-${year}`);
+
+        const selectedEmotion = Array.from(document.querySelectorAll(".emotion > i")).find(emotion => emotion.getAttribute("state"));
+        if (selectedEmotion)
+            defocusEmotions(selectedEmotion.className.split(" ")[1]);
     });
 
     nextMonthBtn.addEventListener('click', () => {
@@ -43,6 +57,13 @@ window.onload = () => {
         updateCalendar(calendar, month, year);
         emotionsHandler.update(calendar);
         updateEmotionsProgress(emotionsHandler);
+
+        // update url value to match the new month
+        updateUrlValue('date', `${month}-${year}`);
+
+        const selectedEmotion = Array.from(document.querySelectorAll(".emotion > i")).find(emotion => emotion.getAttribute("state"));
+        if (selectedEmotion)
+            defocusEmotions(selectedEmotion.className.split(" ")[1]);
     });
 
     // fill calendar with emotions data
@@ -78,6 +99,23 @@ const updateCalendar = (calendar, month, year) => {
     calendar.fill(month, year);
 }
 
+const defocusEmotions = emotionClass => {
+    const emotions = Array.from(document.querySelectorAll(".fa-solid"));
+    const emotionsProgressBars = Array.from(document.querySelectorAll('.emotions-progress > div'));
+
+    // defocus all emotions except the selected one
+    Array.from(emotions).forEach(emotion => {
+        if (!emotion.classList.contains(emotionClass) && !emotion.closest(".navbar") && !emotion.closest(".navbar-top"))
+            emotion.style.opacity = "0.3";
+    });
+
+    // defocus all progress bars except the selected one
+    Array.from(emotionsProgressBars).forEach(bar => {
+        if (bar.getAttribute("class-value") != emotionClass)
+            bar.style.opacity = "0.3";
+    });
+}
+
 document.addEventListener("click", e => {
     if (e.target.closest(".days") && e.target.className != "week-row days") {
         const day = e.target.innerText == "" ? e.target.parentElement.innerText : e.target.innerText;
@@ -85,5 +123,26 @@ document.addEventListener("click", e => {
         const year = calendar.year;
         if (new Date(`${month}-${day}-${year}`) <= today)
             window.location.href = `journal.html?date=${month}-${day}-${year}`;
+    }
+
+    if (e.target.closest(".emotion")) {
+        const emotionI = e.target.closest(".emotion").querySelector("i");
+        const emotionClass = emotionI.className.split(" ")[1];
+
+        const emotions = Array.from(document.querySelectorAll(".fa-solid"));
+        const emotionsProgressBars = Array.from(document.querySelectorAll('.emotions-progress > div'));
+
+        // reset opacity
+        Array.from(emotions).forEach(emotion => emotion.style.removeProperty("opacity"));
+        Array.from(emotionsProgressBars).forEach(bar => bar.style.removeProperty("opacity"));
+
+        if (emotionI.getAttribute("state") != "selected") {
+            // remove selected state from all emotions
+            Array.from(emotions).forEach(emotion => emotion.removeAttribute("state"));
+
+            defocusEmotions(emotionClass);
+
+            emotionI.setAttribute("state", "selected");
+        } else emotionI.removeAttribute("state");
     }
 });
