@@ -1,21 +1,21 @@
-.month-chooser {
+.month-chooser, .year {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border: 1px solid silver;
 }
 
-.month-chooser > div {
+.month-chooser > div, .year > div {
     width: 100%;
     text-align: center;
 }
 
-.month-chooser > div:not(:nth-child(2)) {
+.month-chooser > div:not(:nth-child(2)), .year > div:not(:nth-child(2)) {
     color: silver;
     cursor: pointer;
 }
 
-.month-chooser > div:not(:nth-child(2)):hover {
+.month-chooser > div:not(:nth-child(2)):hover, .year > div:not(:nth-child(2)):hover {
     color: black;
 }
 
@@ -48,10 +48,6 @@
     bottom: 0;
     margin: auto;
     height: fit-content;
-}
-
-.year {
-    border: 1px solid silver;
 }
 
 .today {

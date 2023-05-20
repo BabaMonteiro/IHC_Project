@@ -1,7 +1,7 @@
 let calendar, emotionsHandler;
 const today = new Date();
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const yearLabel = document.querySelector(".year");
+const yearLabel = document.querySelector(".year > div:nth-child(2)");
 const monthLabel = document.querySelector('.month-chooser div:nth-child(2)'); 
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -33,12 +33,7 @@ window.onload = () => {
     calendar.create(() => calendarWrapper.querySelector("p").remove());
     emotionsHandler = new EmotionsHandler(calendar, document.querySelector('.emotions'));
 
-    const prevMonthBtn = document.querySelector('.month-chooser div:nth-child(1)');
-    const nextMonthBtn = document.querySelector('.month-chooser div:nth-child(3)');
-
-    prevMonthBtn.addEventListener('click', () => {
-        const month = calendar.month - 1 < 1 ? 12 : calendar.month - 1;
-        const year = calendar.month - 1 < 1 ? calendar.year - 1 : calendar.year;
+    const updateAll = (month, year) => {
         updateCalendar(calendar, month, year);
         emotionsHandler.update(calendar);
         updateEmotionsProgress(emotionsHandler);
@@ -49,21 +44,35 @@ window.onload = () => {
         const selectedEmotion = Array.from(document.querySelectorAll(".emotion > i")).find(emotion => emotion.getAttribute("state"));
         if (selectedEmotion)
             defocusEmotions(selectedEmotion.className.split(" ")[1]);
+    }
+
+    const prevMonthBtn = document.querySelector('.month-chooser div:nth-child(1)');
+    const nextMonthBtn = document.querySelector('.month-chooser div:nth-child(3)');
+    const prevYearBtn = document.querySelector('.year div:nth-child(1)');
+    const nextYearBtn = document.querySelector('.year div:nth-child(3)');
+    
+    prevMonthBtn.addEventListener('click', () => {
+        const month = calendar.month - 1 < 1 ? 12 : calendar.month - 1;
+        const year = calendar.month - 1 < 1 ? calendar.year - 1 : calendar.year;
+        updateAll(month, year);
     });
 
     nextMonthBtn.addEventListener('click', () => {
         const month = calendar.month + 1 > 12 ? 1 : calendar.month + 1;
         const year = calendar.month + 1 > 12 ? calendar.year + 1 : calendar.year;
-        updateCalendar(calendar, month, year);
-        emotionsHandler.update(calendar);
-        updateEmotionsProgress(emotionsHandler);
+        updateAll(month, year);
+    });
 
-        // update url value to match the new month
-        updateUrlValue('date', `${month}-${year}`);
+    prevYearBtn.addEventListener('click', () => {
+        const month = calendar.month;
+        const year = calendar.year - 1;
+        updateAll(month, year);
+    });
 
-        const selectedEmotion = Array.from(document.querySelectorAll(".emotion > i")).find(emotion => emotion.getAttribute("state"));
-        if (selectedEmotion)
-            defocusEmotions(selectedEmotion.className.split(" ")[1]);
+    nextYearBtn.addEventListener('click', () => {
+        const month = calendar.month;
+        const year = calendar.year + 1;
+        updateAll(month, year);
     });
 
     // fill calendar with emotions data
