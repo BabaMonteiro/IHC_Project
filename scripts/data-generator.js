@@ -29,7 +29,7 @@
     }
     
     let currentDate = new Date(oldestDate);
-    while (currentDate <= yesterday) {
+    while (currentDate <= yesterday || currentDate.getMonth() == yesterday.getMonth()) {
         console.log(currentDate, yesterday);
         let tag = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1);
 
