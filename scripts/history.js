@@ -114,7 +114,7 @@ const defocusEmotions = emotionClass => {
 
     // defocus all emotions except the selected one
     Array.from(emotions).forEach(emotion => {
-        if (!emotion.classList.contains(emotionClass) && !emotion.closest(".navbar") && !emotion.closest(".navbar-top"))
+        if (!emotion.classList.contains(emotionClass) && (emotion.closest(".calendar") || emotion.closest(".emotion")))
             emotion.style.opacity = "0.3";
     });
 

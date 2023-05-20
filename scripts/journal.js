@@ -61,6 +61,10 @@ send.addEventListener("click", () => {
   const emotion = selectedEmotion ?
     selectedEmotion.querySelector("i").classList[1].replace("fa-face-", "") :
     null;
+
+  if (!emotion)
+    return alert("Please select an emotion.");
+    
   const date = new Date(dateHeader.innerHTML);
   localStorage.setItem(
     `journal-${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
