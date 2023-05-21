@@ -56,6 +56,11 @@ li {
     flex-direction: column;
 }
 
+
+.navbar a {
+    text-decoration: none;
+}
+
 .navbar li p{
     font-size: 15px;
     margin-top: 0;
