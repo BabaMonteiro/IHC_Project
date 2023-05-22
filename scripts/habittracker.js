@@ -85,3 +85,10 @@ document.addEventListener("click", e => {
         }
     }
 });
+
+const pushButton = document.getElementById('push');
+const taskInput = document.getElementById('taskInput');
+
+pushButton.addEventListener('click', () => {
+  taskInput.style.display = 'block';
+});
