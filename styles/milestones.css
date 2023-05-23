@@ -1,6 +1,7 @@
 .milestones {
-    height: calc(100vh - 75px - 60px);
+    height: auto;
     margin-top: 60px;
+    padding-bottom: 10px;
   }
   
  

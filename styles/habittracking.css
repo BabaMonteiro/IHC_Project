@@ -23,7 +23,7 @@ main {
     border-bottom: 2;
     font-size: 20px;
     width: 98%;
-    color: #d1d3d4;
+    color: var(--color3);
     margin-left: 2px;
     margin-right: 2px;
 }
@@ -78,14 +78,15 @@ main {
 
 #newtask input{
     margin-right: 10px;
-    width: 80%;
+    width: 250px;
     border: none;
     border-bottom: 2px solid #d1d3d4;
     color: #111111;
     font-weight: 500;
     margin-top: 10px;
-    position: relative;
+    position: absolute;
     font-size: 15px;
+    right: -97px;
 }
 
 #newtask input:focus{
@@ -93,10 +94,11 @@ main {
     border-bottom: 3px solid var(--color4);
     
 }
+
 #newtask button{
-    margin-top: -30px;
-    margin-left: 90px;
-    position: relative;
+     
+    position: absolute;
+    left: 135px;
     float: right;
     font-weight: 700;
     font-size: 30px;
@@ -104,17 +106,33 @@ main {
     border: none;
     color: #ffffff;
     cursor: pointer;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 #tasks{
     width: 100%;
     overflow-x: hidden;
-    height: 310px;
+    height: 170px;
     overflow-y: auto;
 }
 
+#tasks::-webkit-scrollbar {
+    width: 8px; 
+  }
+  
+  #tasks::-webkit-scrollbar-track {
+    background: white; 
+  }
+  
+  #tasks::-webkit-scrollbar-thumb {
+    background-color: var(--color3); 
+    border-radius: 4px; 
+  }
+  
+  #tasks::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+  }
 
 .task{
     margin-left: 10px;
