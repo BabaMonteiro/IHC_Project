@@ -1,8 +1,28 @@
 .milestones {
-    height: auto;
+    height: calc(100vh - 75px); 
     margin-top: 60px;
     padding-bottom: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
+
+
+.milestones::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.milestones::-webkit-scrollbar-track {
+  background: white; 
+}
+
+.milestones::-webkit-scrollbar-thumb {
+  background-color: var(--color3); 
+  border-radius: 4px; 
+}
+
+.milestones::-webkit-scrollbar-thumb:hover {
+  background-color: #555; 
+}
   
  
   
