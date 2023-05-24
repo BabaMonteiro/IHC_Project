@@ -1,8 +1,8 @@
 .emotions {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-    padding: 10px;
-    margin: 20px auto;
+    padding: 5px;
+    margin: 10px auto;
     place-items: center;
     width: 90%;
 }

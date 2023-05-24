@@ -113,7 +113,7 @@ main {
 #tasks{
     width: 100%;
     overflow-x: hidden;
-    height: 170px;
+    height: 230px;
     overflow-y: auto;
 }
 

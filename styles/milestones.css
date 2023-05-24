@@ -1,10 +1,10 @@
 .milestones {
-    height: calc(100vh - 130px); 
-    margin-top: 60px;
+    height: calc(100vh - 160px); 
+    margin-top: 15px;
     padding-bottom: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
+ 
   }
+
 
 
 .milestones::-webkit-scrollbar {
@@ -25,36 +25,67 @@
 }
   
  
+
+.milestones > .trophy-pair {
+  margin-top: 13px;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.milestones > h5{
+  color: gray;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 2px;
+}
+
+.gold{
+  color: #D4AF37 !important;
+}
+
+.silver{
+  color: #CCCCCC !important
+}
+
+.bronze{
+  color: #CD7F32 !important
+}
+
+.trophy-pair i {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
   
-  .milestones > .trophy-pair {
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  .trophy-pair i.clicked {
+    opacity: 0.5;
   }
-
-  .gold{
-    color: #D4AF37 !important;
-  }
-
-  .silver{
-    color: #CCCCCC !important
-  }
-
-  .bronze{
-    color: #CD7F32 !important
-  }
-
-  .trophy-pair i{
+  
+  .trophy-pair i.clicked + .done-indicator {
     display: block;
-    margin: 20px;
-    font-size: 4em;
-    color: var(--color3);
-    text-align: center;
   }
-
+  
+  .done-indicator {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color4);
+  }
+  
   .trophy-pair p{
     font-family: 'Pastel Colors', sans-serif;
     font-size: 1em;
     color: var(--color4)
+  }
+
+  .trophy-single{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }

@@ -22,15 +22,43 @@
     <body>
         <main>
             <div class="navbar-top">
-                <!-- <div class="topleft">
-                    <a href="profile.html"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
-                </div> -->
+                <div class="topleft">
+                    <a href="entry.html"><i class="fas fa-door-open fa-2xl"></i></a>
+                </div>
                 <div class="topcenter">
                     <h1 class="page-title">TASKS</h1>
                 </div>
                 <div class="topright">
                     <a href="index.html"><i class="fa-solid fa-house-chimney fa-2xl"></i></a>
                 </div>
+            </div>
+            <div class="navbar">
+              <ul>
+                <li class="active">
+                  <a href="habittracking.html">
+                    <i class="fa-solid fa-list-check fa-2xl"></i>
+                    <p>Tasks</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="journal.html">
+                    <i class="fa-solid fa-book fa-2xl"></i>
+                    <p>Journals</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="history.html">
+                    <i class="fa-solid fa-calendar-check fa-2xl"></i>
+                    <p>Calendar</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="milestones.html">
+                    <i class="fa-solid fa-award fa-2xl"></i>
+                    <p>Milestones</p>
+                  </a>
+                </li>
+              </ul>
             </div>
             <div class = "all_tasks">
                     <h2>Predefined Tasks</h2>
@@ -41,38 +69,11 @@
                     
                 </div>
                 <div id="newtask">
-                  <input style="display: none;"type="text" id="taskInput" placeholder="Write here..." class="hidden">
+                  <input style="display: none;"type="text" id="taskInput" placeholder="Add your task..." class="hidden">
                   <button id="push">+</button>
                 </div>
             </div>
-            <div class="navbar">
-                <ul>
-                  <li class="active">
-                    <a href="habittracking.html">
-                      <i class="fa-solid fa-list-check fa-2xl"></i>
-                      <p>Tasks</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="journal.html">
-                      <i class="fa-solid fa-book fa-2xl"></i>
-                      <p>Journals</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="history.html">
-                      <i class="fa-solid fa-calendar-check fa-2xl"></i>
-                      <p>Calendar</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="milestones.html">
-                      <i class="fa-solid fa-award fa-2xl"></i>
-                      <p>Milestones</p>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            
         </main>
 
         <script src="scripts/scripts.js" async defer></script>
