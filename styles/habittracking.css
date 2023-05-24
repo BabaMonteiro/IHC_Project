@@ -148,7 +148,6 @@ main {
 }
 
 .task span{
-    
     color: #111111;
     font-weight: 500;
     position: fixed;
@@ -156,12 +155,7 @@ main {
     font-size: 15px;
     font-weight: 400;
     width: 80%;
-    /* width: 80%;
-    border: none;
-    border-bottom: 1px solid #98A8F8;;
-    
-    font-size: 15px;
-     */
+    text-align: right;
 }
 
 .task button{
@@ -176,4 +170,9 @@ main {
     width: 35px;
     height: 35px;
     border: none;
+}
+
+.task label {
+    width: 100%;
+    text-align: right;
 }
