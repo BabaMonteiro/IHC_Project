@@ -39,6 +39,7 @@ if (localStorage.getItem("customTasks") != null) {
         const label = document.createElement("label");
         taskLi.appendChild(label);
         label.htmlFor = "task" + i;
+        label.classList.add("taskname");
         label.innerText = task;
         const delButton = document.createElement("button");
         delButton.className = "delete";
